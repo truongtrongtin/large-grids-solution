@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import AutoSizer from "react-virtualized-auto-sizer";
 import { FixedSizeGrid as Grid } from 'react-window';
@@ -92,11 +92,6 @@ function App() {
     return () => document.removeEventListener('mouseup', handleMouseUp);
   })
 
-  const itemData = useMemo(() => ({
-    selection,
-    setSelection
-  }), [selection]);
-
   return (
     <AutoSizer>
       {({ height, width }) => (
@@ -107,7 +102,7 @@ function App() {
           rowCount={1000000}
           rowHeight={35}
           width={width}
-          itemData={itemData}
+          itemData={{selection, setSelection}}
         >
           {Cell}
         </Grid>
