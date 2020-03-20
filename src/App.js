@@ -20,7 +20,7 @@ function Cell({ columnIndex, rowIndex, data, style }) {
 
   function handleMouseDown({rowIndex, columnIndex}) {
     setSelection(prevState => ({
-      ...selection,
+      ...prevState,
       isSelecting: true,
       start: {
         ...prevState.start,
@@ -38,7 +38,7 @@ function Cell({ columnIndex, rowIndex, data, style }) {
   function handleMouseOver({rowIndex, columnIndex}) {
     if (selection.isSelecting) {
       setSelection(prevState => ({
-        ...selection,
+        ...prevState,
         end: {
           ...prevState.end,
           rowIndex,
