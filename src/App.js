@@ -9,10 +9,12 @@ function Cell({ columnIndex, rowIndex, data, style }) {
 
   function className() {
     // Check if cell is outside of selected area
-    if (columnIndex < Math.min(start.columnIndex, end.columnIndex)
-      || columnIndex > Math.max(start.columnIndex, end.columnIndex)
-      || rowIndex < Math.min(start.rowIndex, end.rowIndex)
-      || rowIndex > Math.max(start.rowIndex, end.rowIndex)) {
+    if (
+      columnIndex < Math.min(start.columnIndex, end.columnIndex) ||
+      columnIndex > Math.max(start.columnIndex, end.columnIndex) ||
+      rowIndex < Math.min(start.rowIndex, end.rowIndex) ||
+      rowIndex > Math.max(start.rowIndex, end.rowIndex)
+    ) {
       return '';
     }
     return 'selected';
@@ -62,7 +64,7 @@ function Cell({ columnIndex, rowIndex, data, style }) {
         userSelect: 'none',
       }}
     >
-      {columnIndex}, {rowIndex}
+      {rowIndex}, {columnIndex}
     </div>
   )
 };
